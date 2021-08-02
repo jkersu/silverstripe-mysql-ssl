@@ -66,7 +66,7 @@ class SSL_MySQLiConnector extends MySQLiConnector
             $parameters['password'],
             $selectedDB,
             !empty($parameters['port']) ? $parameters['port'] : ini_get("mysqli.default_port"),
-            null,
+            !empty($parameters['database_socket']) ? $parameters['database_socket'] : null,
             $this->config()->verify_ssl_certificate
                 ? null
                 : MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT

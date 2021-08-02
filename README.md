@@ -31,6 +31,11 @@ ElliotSawyer\SSLMySQLDatabase\SSL_MySQLiConnector:
   verify_ssl_certificate: false
 ```
 
+You can also specify the database socket if required by setting the following in your .env:
+```ini
+SS_DATABASE_SOCKET="..."
+```
+
 Localhost vs 127.0.0.1 vs IP address
 ------------------------------------
 When your webserver and MySQL are on the same server, communication is done through socket connections and SSL is mostly irrelevant. MySQLi expects an IP address when using SSL, so use 127.0.0.1 in this case.

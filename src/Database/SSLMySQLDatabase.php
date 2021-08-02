@@ -12,6 +12,7 @@ class SSLMySQLDatabase extends MySQLDatabase
             'SS_DATABASE_SSL_KEY' => 'ssl_key',
             'SS_DATABASE_SSL_CERT' => 'ssl_cert',
             'SS_DATABASE_SSL_CA' => 'ssl_ca',
+            'SS_DATABASE_SOCKET' => 'database_socket'
         ];
 
         // Loop through the list of possible SSL DB environment variables
