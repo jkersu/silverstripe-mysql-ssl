@@ -17,7 +17,14 @@ class SSLMySQLDatabase extends MySQLDatabase
 
         // Loop through the list of possible SSL DB environment variables
         foreach ($envMap as $envKey => $paramKey) {
-            if ($val = Environment::getEnv($envKey)) {
+            $val = Environment::getEnv($envKey);
+
+            // if these values are specifically the case-sensitive string "NULL",
+            // we may need to pass null values into the database connection string
+            // but we can't use "NULL" because dotenv parses it as a string
+            if ($val === 'NULL') {
+                $parameters[$paramKey] = null;
+            } elseif ($val) {
                 $parameters[$paramKey] = $val;
             }
         }
